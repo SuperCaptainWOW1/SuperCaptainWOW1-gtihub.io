@@ -1,4 +1,11 @@
-# Full Stack Travel Log
-A full stack application to store / list places you have traveled.
+# Log Entry
 
-[Cool guy's video who made the original project](https://www.youtube.com/watch?v=5pQsl9u_10M "Click on me")
+* Title - Text
+* Description - Text
+* Comments - Text
+* Rating - scale of 1 - 10
+* Image - Text - URL
+* Latitude - Number
+* Longitude - Number
+* Created At - DateTime
+* Updated At - DateTime
