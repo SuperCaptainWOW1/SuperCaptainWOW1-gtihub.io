@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+
 // * Title - Text
 // * Description - Text
 // * Comments - Text
@@ -42,7 +43,7 @@ const logEntrySchema = new Schema({
   },
   visitDate: {
     type: Date,
-    reqiured: true,
+    required: true,
   },
 }, {
   timestamps: true,

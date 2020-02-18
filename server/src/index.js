@@ -7,11 +7,14 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const { notFound, errorHandler } = require('./middlewares');
+const logs = require('./api/logs');
 
 const app = express();
 
+// Need mongod to be running on the machine
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 app.use(morgan('common'));
@@ -19,12 +22,15 @@ app.use(helmet());
 app.use(cors({
   origin: process.env.CORS_ORIGIN,
 }));
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.json({
     message: 'Hello!',
   });
 });
+
+app.use('/api/logs', logs);
 
 app.use(notFound);
 app.use(errorHandler);
