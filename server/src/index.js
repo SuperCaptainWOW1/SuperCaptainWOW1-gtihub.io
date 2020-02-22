@@ -22,6 +22,7 @@ app.use(helmet());
 app.use(cors({
   origin: process.env.CORS_ORIGIN,
 }));
+// Make server be able to recieve json
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -32,6 +33,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/logs', logs);
 
+// Middlewares
 app.use(notFound);
 app.use(errorHandler);
 

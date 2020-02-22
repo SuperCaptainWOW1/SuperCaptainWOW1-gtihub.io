@@ -6,11 +6,16 @@ const router = Router();
 // Travel log
 
 // Put simply log entry is an entry for review of the place
-const LogEntry = require('../models/LogEntry');
+// Technically this is a model for creating "documents"
+const LogEntryModel = require('../models/LogEntryModel');
 
 router.get('/', async (req, res, next) => {
   try {
-    const entries = await LogEntry.find();
+    // find is a "prototype method" of logEntry
+    // It returns all entries created like that:
+    // const logEntry = new LogEntryModel(req.body);
+    // const createdEntry = await logEntry.save();
+    const entries = await LogEntryModel.find();
     res.json(entries);
   } catch (error) {
     next(error);
@@ -19,8 +24,11 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const logEntry = new LogEntry(req.body);
+    // Creating document (entry) locally
+    const logEntry = new LogEntryModel(req.body);
+    // Saving document in database
     const createdEntry = await logEntry.save();
+    // Response back with the saved modified data
     res.json(createdEntry);
   } catch (error) {
     console.log(error);
