@@ -10,10 +10,20 @@ body {
 }
 
 .marker {
-  stroke: #f8c102;
+  stroke: #3f51b5;
   transform: translate(-50%, -100%);
 }
 
 .popup {
-  max-width: 300px;
+  max-width: 400px;
+}
+
+.popup.form {
+  width: 40vw;
+}
+
+.entryForm label, .entryForm input, .entryForm textarea {
+  display: block;
+  margin: 0.5rem 0;
+  width: 100%;
 }
